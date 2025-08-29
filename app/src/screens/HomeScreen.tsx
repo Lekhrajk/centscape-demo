@@ -66,7 +66,13 @@ const HomeScreen: React.FC = () => {
 
         {/* Wishlist Section */}
         <View style={styles.wishlistSection}>
-          <Text style={styles.sectionTitle}>MY WISHLIST</Text>
+          <View style={styles.wishlistSectionHeader}>
+            <Text style={styles.sectionTitle}>MY WISHLIST</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Wishlist')}>
+              <Text style={styles.viewAll}>View All</Text>
+            </TouchableOpacity>
+          </View>
+          
           
           {recentItems.length > 0 ? (
             recentItems.map((item) => (
@@ -132,6 +138,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.spacing.md,
     marginTop: theme.spacing.lg,
   },
+  wishlistSectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   sectionTitle: {
     ...theme.typography.h2,
     backgroundColor: theme.colors.text,
@@ -143,6 +154,11 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     overflow: 'hidden',
     marginBottom: theme.spacing.md,
+  },
+  viewAll: {
+    ...theme.typography.bodySmall,
+    color: theme.colors.text,
+    fontWeight: 'bold',
   },
   emptyState: {
     alignItems: 'center',

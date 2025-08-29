@@ -34,6 +34,7 @@ const WishlistScreen: React.FC = () => {
     item.sourceUrl.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+
   const handleItemDelete = useCallback(async (id: string) => {
     try {
       await deleteItem(id);
@@ -78,11 +79,13 @@ const WishlistScreen: React.FC = () => {
     }
   };
 
-  const renderItem = useCallback(({ item }: { item: any }) => (
-    <WishlistItem
-      item={item}
-    />
-  ), []);
+  const renderItem = useCallback(({ item }: { item: any }) => {
+    return (
+      <WishlistItem
+        item={item}
+      />
+    );
+  }, []);
 
   const renderEmptyState = () => (
     <View style={styles.emptyState}>
@@ -114,7 +117,7 @@ const WishlistScreen: React.FC = () => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['left', 'right']}>
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerContent}>
@@ -187,17 +190,26 @@ const WishlistScreen: React.FC = () => {
         </View>
       )}
 
+    {/* Debug Info */}
+      <View style={styles.debugContainer}>
+        <Text style={styles.debugText}>
+          Total: {items.length} | Filtered: {filteredItems.length} | Search: "{searchQuery}"
+        </Text>
+      </View>
+
       {/* Items List */}
-      <View style={styles.listContainer}>
+      <View style={styles.listWrapper}>
         <FlashList
           data={filteredItems}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
           estimatedItemSize={120}
-          showsVerticalScrollIndicator={false}
+          showsVerticalScrollIndicator={true}
           contentContainerStyle={styles.listContent}
           ListEmptyComponent={renderEmptyState}
           ItemSeparatorComponent={() => <View style={styles.separator} />}
+          onEndReached={() => console.log('Reached end of list')}
+          onEndReachedThreshold={0.1}
         />
       </View>
 
@@ -295,11 +307,26 @@ const styles = StyleSheet.create({
     marginLeft: theme.spacing.sm,
     flex: 1,
   },
-  listContainer: {
+  debugContainer: {
+    backgroundColor: theme.colors.warning + '20',
+    padding: theme.spacing.sm,
+    marginHorizontal: theme.spacing.lg,
+    marginTop: theme.spacing.sm,
+    borderRadius: theme.borderRadius.sm,
+  },
+  debugText: {
+    fontSize: 12,
+    color: theme.colors.warning,
+    textAlign: 'center',
+  },
+  listWrapper: {
     flex: 1,
+    minHeight: 0, // Important for FlashList
   },
   listContent: {
-    padding: theme.spacing.lg,
+    paddingHorizontal: theme.spacing.lg,
+    paddingTop: theme.spacing.md,
+    paddingBottom: theme.spacing.xxl, // Extra padding for FAB
   },
   separator: {
     height: theme.spacing.md,

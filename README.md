@@ -9,6 +9,7 @@ A full-stack wishlist application built with React Native + Expo (TypeScript) fo
 | Screen | Description |
 |--------|-------------|
 | ![Home Screen](screenshots/home_screen.jpeg) | **Home Screen** - Dashboard with progress tracking and recent items |
+| ![Wishlist Screen](screenshots/wishlist_screen.jpeg) | **Wishlist Screen** - Scrollable list of saved items with search functionality |
 | ![Add to Wishlist](screenshots/add_to_wishlist_screen.jpeg) | **Add to Wishlist** - URL input and preview functionality |
 | ![Preview Screen](screenshots/preview_screen.jpeg) | **Preview Screen** - Product preview with extracted data |
 | ![Loading Preview](screenshots/loading_preview_screen.jpeg) | **Loading Preview** - Loading state while fetching product data |
