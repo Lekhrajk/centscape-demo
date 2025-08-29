@@ -2,7 +2,7 @@ import axios, { AxiosResponse, AxiosError } from 'axios';
 import { PreviewRequest, PreviewResponse, ApiError } from '../types';
 
 const API_BASE_URL = __DEV__ 
-  ? 'http://10.81.61.27:3001' 
+  ? 'http://localhost:3001' 
   : 'https://your-production-api.com';
 
 class ApiService {
