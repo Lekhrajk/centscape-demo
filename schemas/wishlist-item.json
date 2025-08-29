@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Wishlist Item",
+  "description": "Schema for wishlist items stored in the app",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the wishlist item",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the item",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "image": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the item image",
+      "maxLength": 2048
+    },
+    "price": {
+      "type": "string",
+      "description": "Price information if available",
+      "maxLength": 100
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency code for the price",
+      "maxLength": 10
+    },
+    "siteName": {
+      "type": "string",
+      "description": "Name of the website or store",
+      "maxLength": 200
+    },
+    "sourceUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "The original source URL",
+      "minLength": 1,
+      "maxLength": 2048
+    },
+    "normalizedUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Normalized URL for deduplication (v2 schema)",
+      "minLength": 1,
+      "maxLength": 2048
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the item was created"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the item was last updated"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "sourceUrl",
+    "normalizedUrl",
+    "createdAt",
+    "updatedAt"
+  ],
+  "additionalProperties": false
+}

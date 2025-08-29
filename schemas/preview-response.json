@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Preview Response",
+  "description": "Response schema for URL preview endpoint",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The title of the webpage or product",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "image": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the main image",
+      "maxLength": 2048
+    },
+    "price": {
+      "type": "string",
+      "description": "Price information if available",
+      "maxLength": 100
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency code for the price",
+      "maxLength": 10
+    },
+    "siteName": {
+      "type": "string",
+      "description": "Name of the website or store",
+      "maxLength": 200
+    },
+    "sourceUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "The original source URL",
+      "minLength": 1,
+      "maxLength": 2048
+    }
+  },
+  "required": ["title", "sourceUrl"],
+  "additionalProperties": false
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Preview Request",
+  "description": "Request schema for URL preview endpoint",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL to fetch and preview",
+      "minLength": 1,
+      "maxLength": 2048
+    },
+    "raw_html": {
+      "type": "string",
+      "description": "Optional raw HTML content to parse instead of fetching from URL",
+      "maxLength": 524288
+    }
+  },
+  "oneOf": [
+    {
+      "required": ["url"]
+    },
+    {
+      "required": ["raw_html"]
+    }
+  ],
+  "additionalProperties": false
+}

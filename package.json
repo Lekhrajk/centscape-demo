@@ -1,0 +1,29 @@
+{
+  "name": "centscape-wishlist",
+  "version": "1.0.0",
+  "description": "Unified Wishlist - Full Stack Assignment",
+  "private": true,
+  "workspaces": [
+    "app",
+    "server"
+  ],
+  "scripts": {
+    "verify": "npm run verify:server && npm run verify:app",
+    "verify:server": "cd server && npm run test",
+    "verify:app": "cd app && npm run typecheck",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:app\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:app": "cd app && npm run start",
+    "install:all": "npm install && cd server && npm install && cd ../app && npm install",
+    "build": "npm run build:server && npm run build:app",
+    "build:server": "cd server && npm run build",
+    "build:app": "cd app && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
