@@ -14,16 +14,9 @@
     "raw_html": {
       "type": "string",
       "description": "Optional raw HTML content to parse instead of fetching from URL",
-      "maxLength": 524288
+      "maxLength": 1048576
     }
   },
-  "oneOf": [
-    {
-      "required": ["url"]
-    },
-    {
-      "required": ["raw_html"]
-    }
-  ],
+  "required": ["url"],
   "additionalProperties": false
 }

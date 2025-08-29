@@ -11,24 +11,24 @@
       "maxLength": 500
     },
     "image": {
-      "type": "string",
+      "type": ["string", "null"],
       "format": "uri",
-      "description": "URL of the main image",
+      "description": "URL of the main image (can be null)",
       "maxLength": 2048
     },
     "price": {
-      "type": "string",
-      "description": "Price information if available",
+      "type": ["string", "null"],
+      "description": "Price information if available (can be null)",
       "maxLength": 100
     },
     "currency": {
-      "type": "string",
-      "description": "Currency code for the price",
+      "type": ["string", "null"],
+      "description": "Currency code for the price (can be null)",
       "maxLength": 10
     },
     "siteName": {
-      "type": "string",
-      "description": "Name of the website or store",
+      "type": ["string", "null"],
+      "description": "Name of the website or store (can be null)",
       "maxLength": 200
     },
     "sourceUrl": {
